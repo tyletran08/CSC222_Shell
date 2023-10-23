@@ -48,7 +48,7 @@ This C program is a basic implementation of a shell in C. It provides a pseudo c
 **Clone and enter folder directory:**
 
 ```
-git clone https://github.com/tyletran08/CSC222_Shell/ && CSC222_Shell
+git clone https://github.com/tyletran08/CSC222_Shell/ && cd CSC222_Shell/src
 ```
 
 **Compile the C program using gcc:**
