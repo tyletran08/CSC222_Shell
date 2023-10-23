@@ -4,7 +4,7 @@ This is the Developmental Branch, used to put new things and break things!
 Git stuff:
 After edits, save file and do "git add ."
 Then do "git commit -m "message""
-Then do "git push origin developmental"
+Then do "git push origin Developmental"
 
 Regular C stuff:
 Save file and run "gcc main.c -o shell"
