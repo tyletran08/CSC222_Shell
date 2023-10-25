@@ -21,7 +21,23 @@ Description: CSC222 Programming Project - A small shell with I/O redirections
 #include <stdlib.h>
 #include <string.h>
 
+char* CommandPrompt();
+
+struct ShellCommand {};
+
+struct ShellCommand ParseCommandLine(char* input);
+
+void ExecuteCommand(struct ShellCommand command);
+
 int main() {
-    printf("Hello World!\n");
-    return 0;
+    char* input;
+    struct ShellCommand command;
+
+    for(;;) {
+        input = CommandPrompt();
+        command = ParseCommandLine(input);
+        ExecuteCommand(command);
+    }
+
+    exit(0);
 }
