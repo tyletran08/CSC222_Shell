@@ -1,5 +1,5 @@
 # CSC222 Final Project
-### Tyler Tran, Dalton Michiels, Colby Women
+### Tyler Tran, Dalton Michiels, Colby Willman
 
 This is our final project for CSC222 which is making a shell!
 
