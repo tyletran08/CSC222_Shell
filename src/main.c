@@ -1,22 +1,8 @@
 /*
-This is the Developmental Branch, used to put new things and break things!
-
-Git stuff:
-After edits, save file and do "git add ."
-Then do "git commit -m "message""
-Then do "git push origin Developmental"
-
-Regular C stuff:
-Save file and run "gcc main.c -o shell"
-To run, do "./shell"
-*/
-
-/*
 Author: Tyler Tran, Colby Willman, Dalton Michiels 
 Date: 10-23-2023
 Description: CSC222 Programming Project - A small shell with I/O redirections
 */
-
 
 // LIBRARIES
 #include <stdio.h>
@@ -39,7 +25,6 @@ Description: CSC222 Programming Project - A small shell with I/O redirections
 
 // GLOBAL VARIABLES
 int SIZE = 1024;
-
 
 /*
     FUNCTION
