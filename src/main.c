@@ -12,7 +12,7 @@ To run, do "./shell"
 */
 
 /*
-Author: Tyler Tran, Dalton Michiels, Colby Women 
+Author: Tyler Tran, Colby Willman, Dalton Michiels 
 Date: 10-23-2023
 Description: CSC222 Programming Project - A small shell with I/O redirections
 */
