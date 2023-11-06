@@ -1,5 +1,3 @@
-# This is the Developmental Branch, used to put new things and break things!
-
 # CSC222 Final Project
 
 ### Tyler Tran, Colby Willman, Dalton Michiels
