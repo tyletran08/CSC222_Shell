@@ -37,13 +37,19 @@ struct ShellCommand {
 };
 
 // Prints out the error message and exits the program
-void ErrorHandling() {
+void ErrorHandling(int errortype) {
 
     // errno is a global variable that stores the error code
     int error = errno;
 
     // strerror returns a string describing the error code
     printf(RED "Error [%d]: %s\n" DEF, error, strerror(errno));
+
+    // if it's cd error, don't exit because it is not a child process
+    if (errortype == 1) {
+        return;
+
+    }
 
     // Exits the child
     exit(0);
@@ -84,32 +90,15 @@ char* PromptInput() {
 
 // Tries to change current directory to the given directory
 void ExecuteCD(char* directory) {
-
-    // Forks the process
-    pid_t pid = fork();
-
-    // Child process
-    if (pid == 0) {
-
-        // If no directory is given, change directory to home directory
-        if (directory == NULL) {
-            chdir(getenv("HOME"));
-        }
+    
+    // If no directory is given, change directory to home directory
+    if (directory == NULL) {
+        chdir(getenv("HOME"));
+    }
         
-        // chdir changes directory, returns -1 if there was an error
-        else if (chdir(directory) == -1) {
-            ErrorHandling();
-        }
-    }
-
-    // If forking fails, print error
-    if (pid < 0) {
-        ErrorHandling();
-    }
-
-    // Parent process
-    else {
-        wait(NULL);
+    // chdir changes directory, returns -1 if there was an error
+    else if (chdir(directory) == -1) {
+        ErrorHandling(1);
     }
 };
 
@@ -136,7 +125,7 @@ void Redirection(struct ShellCommand command) {
 
             // If there was an error opening the file, print the error and exit
             if (infile == NULL) {
-                ErrorHandling();
+                ErrorHandling(0);
             }
 
             // Get the file descriptor of the file stream
@@ -167,7 +156,7 @@ void Redirection(struct ShellCommand command) {
 
             // If there was an error opening the file, print the error and exit
             if (outfile == NULL) {
-                ErrorHandling();
+                ErrorHandling(0);
             }
 
             // Get the file descriptor of the file stream
@@ -200,12 +189,12 @@ void ExecuteOtherCommand(struct ShellCommand command) {
     if (pid == 0) {
         Redirection(command);
         execvp(command.command, command.arguments);
-        ErrorHandling();
+        ErrorHandling(0);
     }
 
     // If forking fails, print error
     if (pid < 0) {
-        ErrorHandling();
+        ErrorHandling(0);
     }
 
     // Parent process
