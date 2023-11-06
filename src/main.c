@@ -45,9 +45,9 @@ void ErrorHandling() {
     // strerror returns a string describing the error code
     printf(RED "Error [%d]: %s\n" DEF, error, strerror(errno));
 
-    // Exits the child process
+    // Exits the child
     exit(0);
-}
+};
 
 // Gets the current directory and stores it in allocated sized memory string
 char* GetCurrentDirectory() {
@@ -85,14 +85,31 @@ char* PromptInput() {
 // Tries to change current directory to the given directory
 void ExecuteCD(char* directory) {
 
-    // If no directory is given, change directory to home directory
-    if (directory == NULL) {
-        chdir(getenv("HOME"));
+    // Forks the process
+    pid_t pid = fork();
+
+    // Child process
+    if (pid == 0) {
+
+        // If no directory is given, change directory to home directory
+        if (directory == NULL) {
+            chdir(getenv("HOME"));
+        }
+        
+        // chdir changes directory, returns -1 if there was an error
+        else if (chdir(directory) == -1) {
+            ErrorHandling();
+        }
     }
 
-    // chdir changes directory, returns -1 if there was an error
-    else if (chdir(directory) == -1) {                 
+    // If forking fails, print error
+    if (pid < 0) {
         ErrorHandling();
+    }
+
+    // Parent process
+    else {
+        wait(NULL);
     }
 };
 
@@ -175,6 +192,8 @@ void Redirection(struct ShellCommand command) {
 
 // Executes commands that are not "cd" or "exit"
 void ExecuteOtherCommand(struct ShellCommand command) {
+
+    // Forks the process
     pid_t pid = fork();
 
     // Child process
