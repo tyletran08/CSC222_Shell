@@ -1,5 +1,18 @@
 /*
-Author: Tyler Tran, Colby Willman, Dalton Michiels 
+This is the Developmental Branch, used to put new things and break things!
+
+Git stuff:
+After edits, save file and do "git add ."
+Then do "git commit -m "message""
+Then do "git push origin Developmental"
+
+Regular C stuff:
+Save file and run "gcc main.c -o shell"
+To run, do "./shell"
+*/
+
+/*
+Author: Tyler Tran, Colby Willman, Dalton Michiels
 Date: 10-23-2023
 Description: CSC222 Programming Project - A small shell with I/O redirections
 */
@@ -44,6 +57,9 @@ void ErrorHandling() {
 
     // strerror returns a string describing the error code
     printf(RED "Error [%d]: %s\n" DEF, error, strerror(errno));
+
+    // Exits the child process
+    exit(0);
 }
 
 // Gets the current directory and stores it in allocated sized memory string
@@ -180,7 +196,13 @@ void ExecuteOtherCommand(struct ShellCommand command) {
         execvp(command.command, command.arguments);
         ErrorHandling();
     }
-    
+
+    // If forking fails, print error
+    if (pid < 0) {
+        ErrorHandling();
+    }
+
+    // Parent process
     else {
         wait(NULL);
     }
@@ -203,6 +225,7 @@ struct ShellCommand ParseCommandLine(char* input) {
     struc.command = NULL;
     struc.arguments = NULL;
 
+    // Tokenize the input by spaces
     char* token = strtok(input, " ");
 
     // Check if there's a command, if not, return
@@ -210,29 +233,42 @@ struct ShellCommand ParseCommandLine(char* input) {
         return struc;
     }
 
+    // Allocate memory for the command and arguments
     struc.command = malloc(SIZE);
     struc.arguments = malloc(SIZE);
 
+    // Copy the first token into the command
     strcpy(struc.command, token);
 
+    // Initalize the number of arguments to 0
     int num_args = 0;
     char** args = NULL;
 
+    // While token is not null, keep tokenizing
     while (token != NULL) {
         num_args++;
 
+        // Reallocate memory for the arguments
         char** new_args = realloc(args, (num_args+1) * sizeof(char*));
+
+        // Updates args to point to the newly allocated memory set from new_args
         args = new_args;
 
+        // Allocate memory for the new argument
         args[num_args - 1] = malloc(SIZE);
+
+        // Copy the token into the new argument
         strcpy(args[num_args - 1], token);
 
+        // Get the next token
         token = strtok(NULL, " ");
 
     }
 
+    // Set the last argument to null
     args[num_args] = NULL;
 
+    // Set the struct's arguments to the parsed arguments
     struc.arguments = args;
 
     return struc;
@@ -276,6 +312,9 @@ int main() {
         input = CommandPrompt();
         command = ParseCommandLine(input);
         ExecuteCommand(command);
+
+        free(command.command);
+        free(command.arguments);
     }
 
     exit(0);
