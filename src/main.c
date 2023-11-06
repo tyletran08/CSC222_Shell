@@ -299,9 +299,6 @@ int main() {
         input = CommandPrompt();
         command = ParseCommandLine(input);
         ExecuteCommand(command);
-
-        free(command.command);
-        free(command.arguments);
     }
 
     exit(0);
