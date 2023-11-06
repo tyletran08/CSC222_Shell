@@ -1,0 +1,64 @@
+Script started on 2023-11-06 11:50:30-06:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="80" LINES="24"]
+]777;notify;Command completed;exit\]777;precmd\]0;shikey@shikeylg:~/Documents/[TEMP]/CSC222_Shell/src\]7;file://shikeylg/home/shikey/Documents/%5BTEMP%5D/CSC222_Shell/src\[?2004h
+[1;36mCSC222_Shell/src[0m on [1;35m [0m[1;35mmain[0m [1;31m[[0m[1;31m?[0m[1;31m][0m via [1;38;5;149mC [0m[1;38;5;149mv13.2.1[0m[1;38;5;149m-[0m[1;38;5;149mgcc[0m[1;38;5;149m [0m
+[1;32m❯[0m ./shell
+[?2004l]777;preexec\[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ cd ..
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell[0;0m $ cd src
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ pw
+[1;31mError [2]: No such file or directory
+[0;0m[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ pwd
+/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ls -lh techshell.c
+-rwxrwxrwx. 1 shikey shikey 7.9K Nov  6 11:46 techshell.c
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ chmod 400 techshell.c
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ls -1 lh techshell.c
+-r--------. 1 shikey shikey 7.9K Nov  6 11:46 techshell.c
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ chmod 777 techshll  ell.c
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ls /root
+ls: cannot open directory '/root': Permission denied
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ cd /root
+[1;31mError [13]: Permission denied
+[0;0m[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ horseface
+[1;31mError [2]: No such file or directory
+[0;0m[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ps
+    PID TTY          TIME CMD
+ 149490 pts/6    00:00:00 bash
+ 149621 pts/6    00:00:00 shell
+ 150269 pts/6    00:00:00 ps
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ whereisp  ps
+ps: /usr/bin/ps /usr/share/man/man1/ps.1.gz
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ /bin/ps u
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+shikey      2182  0.0  0.0 448128  5888 tty2     Ssl+ 04:50   0:00 /usr/libexec/
+shikey      2196  0.0  0.0 550576 14720 tty2     Sl+  04:50   0:00 /usr/libexec/
+shikey     83288  0.0  0.0 226424  6912 pts/1    Ss   10:14   0:00 bash
+shikey    103136  0.0  0.0 226424  7040 pts/2    Ss   10:45   0:00 bash
+shikey    111524  0.0  0.0   2452  1280 pts/2    S+   10:58   0:00 ./shell
+shikey    120178  0.0  0.0 226292  7040 pts/3    Ss+  11:13   0:00 bash
+shikey    125595  0.0  0.0 221620  2048 pts/1    S+   11:21   0:00 script
+shikey    125597  0.0  0.0 226300  7168 pts/4    Ss+  11:21   0:00 bash -i
+shikey    142787  0.0  0.0 227536  8320 pts/5    Ss   11:43   0:00 bash
+shikey    149488  0.0  0.0 221620  2176 pts/5    S+   11:50   0:00 script
+shikey    149490  0.0  0.0 226300  7040 pts/6    Ss   11:50   0:00 bash -i
+shikey    149621  0.0  0.0   2452  1536 pts/6    S+   11:50   0:00 ./shell
+shikey    150399  0.0  0.0 226008  3968 pts/6    R+   11:51   0:00 /bin/ps u
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ls
+README.txt  shell  techshell.c	typescript
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ps > u > ps.out
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ wc -l <ps.    ps.out
+14
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ wc -l <ps   ps.u out > wc.out
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ca  t wc.out
+14
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ls
+ps.out	README.txt  shell  techshell.c	typescript  wc.out
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ rm ps.out wc.out
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ ls
+README.txt  shell  techshell.c	typescript
+[1;32m/var/home/shikey/Documents/[TEMP]/CSC222_Shell/src[0;0m $ exit
+]777;notify;Command completed;./shell\]777;precmd\]0;shikey@shikeylg:~/Documents/[TEMP]/CSC222_Shell/src\]7;file://shikeylg/home/shikey/Documents/%5BTEMP%5D/CSC222_Shell/src\[?2004h
+[1;36mCSC222_Shell/src[0m on [1;35m [0m[1;35mmain[0m [1;31m[[0m[1;31m?[0m[1;31m][0m via [1;38;5;149mC [0m[1;38;5;149mv13.2.1[0m[1;38;5;149m-[0m[1;38;5;149mgcc[0m[1;38;5;149m [0mtook [1;33m2m30s[0m 
+[1;32m❯[0m exit
+[?2004l]777;preexec\exit
+
+Script done on 2023-11-06 11:53:08-06:00 [COMMAND_EXIT_CODE="0"]
