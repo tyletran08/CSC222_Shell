@@ -52,7 +52,7 @@ git clone https://github.com/tyletran08/CSC222_Shell/ && cd CSC222_Shell/src
 **Compile the C program using gcc:**
 
 ```
-gcc main.c -o shell
+gcc techshell.c -o shell
 ```
 
 **Run the C program:**
