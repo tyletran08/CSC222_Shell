@@ -286,7 +286,35 @@ void ExecuteCommand(struct ShellCommand command) {
     // If command is "cd", try to change directory
     // strcmp returns 0 if the strings are equal
     if (strcmp(command.command, "cd") == 0) {
-        ExecuteCD(command.arguments[1]);
+
+        // If no arguments are given, change directory to home directory
+        if (command.arguments[1] == NULL) {
+            ExecuteCD(NULL);
+            return;
+        }
+
+        // Calculate the total length of the arguments
+        int total_length = 0;
+        for (int i = 1; command.arguments[i] != NULL; i++) {
+            total_length += strlen(command.arguments[i]) + 1;  // +1 for space or null terminator
+        }
+        
+        // Allocate memory for the concatenated arguments
+        char* arguments_string = malloc(total_length);
+        
+        // Initialize the string to the empty string
+        arguments_string[0] = '\0';
+        
+        // Concatenate the arguments with a space in between
+        for (int i = 1; command.arguments[i] != NULL; i++) {
+            strcat(arguments_string, command.arguments[i]);
+            strcat(arguments_string, " ");
+        }
+        
+        // Remove the trailing space
+        arguments_string[total_length - 1] = '\0';
+        
+        ExecuteCD(arguments_string);
         return;
     }
 
